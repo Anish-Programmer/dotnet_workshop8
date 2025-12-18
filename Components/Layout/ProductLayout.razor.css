@@ -1,0 +1,43 @@
+﻿/* Layout container */
+.layout {
+    display: flex;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #0b2a5a;
+    color: white;
+    padding-top: 16px;
+}
+
+/* Main area (content + header + footer) */
+.main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background-color: #0b2a5a;
+    color: white;
+    padding: 16px;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Footer */
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

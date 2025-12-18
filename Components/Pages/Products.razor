@@ -1,14 +1,23 @@
 ﻿@page "/products"
 @layout ProductLayout
+@using Workshop8.Models
 
 <h1>Products</h1>
 
-<ul class="list-group mt-3">
-    <li class="list-group-item">Laptop</li>
-    <li class="list-group-item">Smartphone</li>
-    <li class="list-group-item">Headphones</li>
-</ul>
+<div class="d-flex flex-wrap gap-3 mt-4">
+    @foreach (var product in products)
+    {
+        <ProductCard Product="product" />
+    }
+</div>
 
 @code {
-
+    private List<Product> products = new()
+    {
+        new() { Id = 1, Name = "Laptop", Price = 1200, Likes = 150, ImageUrl = "https://via.placeholder.com/300" },
+        new() { Id = 2, Name = "Phone", Price = 800, Likes = 230, ImageUrl = "https://via.placeholder.com/300" },
+        new() { Id = 3, Name = "Headphones", Price = 150, Likes = 90, ImageUrl = "https://via.placeholder.com/300" },
+        new() { Id = 4, Name = "Watch", Price = 250, Likes = 110, ImageUrl = "https://via.placeholder.com/300" },
+        new() { Id = 5, Name = "Tablet", Price = 600, Likes = 175, ImageUrl = "https://via.placeholder.com/300" }
+    };
 }
