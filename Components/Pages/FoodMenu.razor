@@ -1,0 +1,23 @@
+﻿@page "/foodmenu"
+@using Workshop8.Models
+@using Workshop8.Components
+
+<h3>Food Menu</h3>
+
+<div class="d-flex flex-wrap gap-3 mt-3">
+    @foreach (var item in Items)
+    {
+        <ItemCard Name="@item.Name" Ingredients="@item.Ingredients" Price="@item.Price" />
+    }
+</div>
+
+@code {
+    private List<Item> Items = new List<Item>
+    {
+        new Item { Name = "Pizza", Ingredients = "Cheese, Tomato, Basil", Price = 12.99 },
+        new Item { Name = "Burger", Ingredients = "Beef, Lettuce, Tomato", Price = 9.99 },
+        new Item { Name = "Pasta", Ingredients = "Penne, Tomato Sauce, Parmesan", Price = 11.50 },
+        new Item { Name = "Salad", Ingredients = "Lettuce, Tomato, Cucumber", Price = 7.25 },
+        new Item { Name = "Sushi", Ingredients = "Rice, Salmon, Nori", Price = 15.00 }
+    };
+}
