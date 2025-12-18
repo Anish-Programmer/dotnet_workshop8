@@ -1,0 +1,41 @@
+﻿@page "/calculator"
+
+<h3>Simple Calculator</h3>
+
+<div class="mb-3">
+    <label>Number 1:</label>
+    <input type="number" @bind="Number1" class="form-control" />
+</div>
+
+<div class="mb-3">
+    <label>Number 2:</label>
+    <input type="number" @bind="Number2" class="form-control" />
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary me-2" @onclick="Add">Add</button>
+    <button class="btn btn-primary me-2" @onclick="Subtract">Subtract</button>
+    <button class="btn btn-primary me-2" @onclick="Multiply">Multiply</button>
+    <button class="btn btn-primary me-2" @onclick="Divide">Divide</button>
+</div>
+
+<div class="alert alert-info">
+    Result: @Result
+</div>
+
+@code {
+    private double Number1 { get; set; }
+    private double Number2 { get; set; }
+    private double Result { get; set; }
+
+    private void Add() => Result = Number1 + Number2;
+    private void Subtract() => Result = Number1 - Number2;
+    private void Multiply() => Result = Number1 * Number2;
+    private void Divide()
+    {
+        if (Number2 != 0)
+            Result = Number1 / Number2;
+        else
+            Result = 0;
+    }
+}
