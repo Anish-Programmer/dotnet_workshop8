@@ -1,9 +1,17 @@
 ﻿@page "/foodmenu"
 @using Workshop8.Models
 @using Workshop8.Components
+@using System.Linq
 
 <h3>Food Menu</h3>
 
+<!-- Sorting Buttons -->
+<div class="mb-3">
+    <button class="btn btn-outline-primary me-2" @onclick="SortByPrice">Sort by Price</button>
+    <button class="btn btn-outline-primary me-2" @onclick="SortByName">Sort by Name</button>
+</div>
+
+<!-- Display Food Items -->
 <div class="d-flex flex-wrap gap-3 mt-3">
     @foreach (var item in Items)
     {
@@ -20,4 +28,15 @@
         new Item { Name = "Salad", Ingredients = "Lettuce, Tomato, Cucumber", Price = 7.25 },
         new Item { Name = "Sushi", Ingredients = "Rice, Salmon, Nori", Price = 15.00 }
     };
+
+    // Sort methods
+    private void SortByPrice()
+    {
+        Items = Items.OrderBy(i => i.Price).ToList();
+    }
+
+    private void SortByName()
+    {
+        Items = Items.OrderBy(i => i.Name).ToList();
+    }
 }
